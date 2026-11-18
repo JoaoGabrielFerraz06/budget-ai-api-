@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: budget-ai-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/budgetdb
+    username: budget
+    password: budget
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.2
+      audio:
+        transcription:
+          options:
+            model: whisper-1
+            language: pt
+        speech:
+          options:
+            model: tts-1
+            voice: alloy
+            response-format: mp3

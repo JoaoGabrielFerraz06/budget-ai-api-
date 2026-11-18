@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: budget-ai-db
+    environment:
+      POSTGRES_DB: budgetdb
+      POSTGRES_USER: budget
+      POSTGRES_PASSWORD: budget
+    ports:
+      - "5432:5432"
+    volumes:
+      - budget-data:/var/lib/postgresql/data
+volumes:
+  budget-data:
